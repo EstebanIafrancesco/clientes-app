@@ -1,0 +1,24 @@
+<h2>Register client</h2>
+<p>
+  <span>Name:</span>
+  <input type="text" [(ngModel)]="client.name" />
+</p>
+<p>
+  <span>CIF:</span>
+  <input type="text" [(ngModel)]="client.cif" />
+</p>
+<p>
+  <span>Adress:</span>
+  <input type="text" [(ngModel)]="client.adress" />
+</p>
+<p>
+  <span>Group:</span>
+  <select [(ngModel)]="client.group">
+    <option *ngFor="let group of groups" value="{{ group.id }}">
+      {{ group.name }}
+    </option>
+  </select>
+</p>
+<p>
+  <button (click)="this.newClient()">Save</button>
+</p>
