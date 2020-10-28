@@ -1,0 +1,10 @@
+<h2>Clients list</h2>
+<div *ngIf="!clients.length">There is not clients at the moment</div>
+<div>
+  <article *ngFor="let client of clients">
+    <span>{{ client.name }}</span>
+    <span>{{ client.cif }}</span>
+    <span>{{ client.adress }}</span>
+    <span>{{ client.group }}</span>
+  </article>
+</div>
