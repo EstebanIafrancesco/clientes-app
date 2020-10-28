@@ -1,10 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Client, Group } from './client.model';
+// import { Observable } from 'rxjs/Observable';
+// import { Subject } from 'rxjs/Subject';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ClientsService {
+  // private clients$ = new Subject<Client[]>();
   private clients: Client[];
   private groups: Group[];
   constructor() {
@@ -25,7 +28,13 @@ export class ClientsService {
   }
   addClient(client: Client) {
     this.clients.push(client);
+    this.clients$.next(this.clients);
   }
+
+  getClients$(): Observable<Client[]> {
+    return this.clients$.asObservable();
+  }
+
   newClient(): Client {
     return {
       id: this.clients.length,
